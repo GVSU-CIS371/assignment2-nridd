@@ -1,27 +1,32 @@
 <template>
   <div>
-    <Beverage :isIced="temp === 'Cold'" />
+    <Beverage
+      :isIced="temp === 'cold'"
+      :base="base"
+      :creamer="creamer"
+      :syrup="syrup"
+    />
     <ul>
       <li>
-        <input type="radio" value="Hot" v-model="temp" />Hot
-        <input type="radio" value="Cold" v-model="temp" />Cold
+        <input type="radio" value="hot" v-model="temp" />Hot
+        <input type="radio" value="cold" v-model="temp" />Cold
       </li>
       <li>
-        <input type="radio" value="Black Tea" v-model="base" />Black Tea
-        <input type="radio" value="Green Tea" v-model="base" />Green Tea
-        <input type="radio" value="Coffee" v-model="base" />Coffee
+        <input type="radio" value="coffee" v-model="base" />Coffee
+        <input type="radio" value="green-tea" v-model="base" />Green Tea
+        <input type="radio" value="black-tea" v-model="base" />Black Tea
       </li>
       <li>
-        <input type="radio" value="No Cream" v-model="creamer" />No Cream
-        <input type="radio" value="Milk" v-model="creamer" />Milk
-        <input type="radio" value="Cream" v-model="creamer" />Cream
-        <input type="radio" value="Half & Half" v-model="creamer" />Half & Half
+        <input type="radio" value="none" v-model="creamer" />No Cream
+        <input type="radio" value="milk" v-model="creamer" />Milk
+        <input type="radio" value="cream" v-model="creamer" />Cream
+        <input type="radio" value="half-half" v-model="creamer" />Half & Half
       </li>
       <li>
-        <input type="radio" value="No Syrup" v-model="syrup" />No Syrup
-        <input type="radio" value="Vanilla" v-model="syrup" />Vanilla
-        <input type="radio" value="Caramel" v-model="syrup" />Caramel
-        <input type="radio" value="Hazelnut" v-model="syrup" />Hazelnut
+        <input type="radio" value="none" v-model="syrup" />No Syrup
+        <input type="radio" value="vanilla" v-model="syrup" />Vanilla
+        <input type="radio" value="caramel" v-model="syrup" />Caramel
+        <input type="radio" value="hazelnut" v-model="syrup" />Hazelnut
       </li>
     </ul>
   </div>
@@ -30,10 +35,11 @@
 <script setup lang="ts">
 import Beverage from "./components/Beverage.vue"
 import { ref } from "vue"
-const temp = ref("Hot")
-const base = ref("Coffee")
-const creamer = ref("No Cream")
-const syrup = ref("No Syrup")
+
+const temp = ref("hot")
+const base = ref("coffee")
+const creamer = ref("none")
+const syrup = ref("none")
 </script>
 
 <style>

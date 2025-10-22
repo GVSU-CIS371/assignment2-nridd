@@ -9,13 +9,13 @@ const props = defineProps<{ syrup: string }>()
 
 const syrupClass = computed(() => {
   switch (props.syrup) {
-    case "Vanilla":
+    case "vanilla":
       return "vanilla"
-    case "Caramel":
+    case "caramel":
       return "caramel"
-    case "Hazelnut":
+    case "hazelnut":
       return "hazelnut"
-    case "No Syrup":
+    case "none":
       return "none"
     default:
       return ""

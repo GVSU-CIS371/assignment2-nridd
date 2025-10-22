@@ -5,11 +5,11 @@ const props = defineProps<{ base: string }>()
 
 const baseClass = computed(() => {
   switch (props.base) {
-    case "Coffee":
+    case "coffee":
       return "coffee"
-    case "Green Tea":
+    case "green-tea":
       return "green-tea"
-    case "Black Tea":
+    case "black-tea":
       return "black-tea"
     default:
       return ""
@@ -24,9 +24,9 @@ const baseClass = computed(() => {
 <style scoped>
 .base {
   width: 100%;
-  height: 60%;
+  height: 100%;
   border-radius: 6px;
-  box-shadow: inset 0 0 6px rgba(0,0,0,.25);
+  margin-top: -10%;
 }
 .coffee { background: #5a381e; }
 .green-tea { background: #cfe2a9; }
