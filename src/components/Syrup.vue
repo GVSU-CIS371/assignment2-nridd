@@ -1,16 +1,41 @@
 <template>
-  <div class="syrup"></div>
+  <div class="syrup" :class="syrupClass"></div>
 </template>
 
-<script setup lang="ts"></script>
-<style lang="scss" scoped>
+<script setup lang="ts">
+import { computed } from "vue"
+
+const props = defineProps<{ syrup: string }>()
+
+const syrupClass = computed(() => {
+  switch (props.syrup) {
+    case "Vanilla":
+      return "vanilla"
+    case "Caramel":
+      return "caramel"
+    case "Hazelnut":
+      return "hazelnut"
+    case "No Syrup":
+      return "none"
+    default:
+      return ""
+  }
+})
+</script>
+
+<style scoped lang="scss">
 .syrup {
   transform: translateY(400%);
-  background-color: #c6c6c6;
   position: relative;
   width: 100%;
   height: 20%;
   animation: pour-tea 2s 1s forwards;
   z-index: 2;
+  background-color: #c6c6c6;
 }
+
+.vanilla { background-color: #f3e5ab; }
+.caramel { background-color: #c68c53; }
+.hazelnut { background-color: #b88961; }
+.none { background-color: transparent; }
 </style>
